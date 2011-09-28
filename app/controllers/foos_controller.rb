@@ -1,6 +1,17 @@
 class FoosController < ApplicationController
+  # GET /in_date_range?start_date=2010-04-14&end_date=2010-04-15
+  # GET /in_date_range.json?start_date=2010-04-14&end_date=2010-04-15
+  def in_date_range
+    start_date = Chronic.parse(params[:start_date]).try(:to_date)
+    end_date = Chronic.parse(params[:end_date]).try(:to_date)
+
+    @foos = Foo.where(foo_date: start_date..end_date)
+    render json: @foos
+  end
+
   # GET /foos
   # GET /foos.json
+  # GET /foos.json?start_date=2010-04-14&end_date=2010-04-15
   def index
     if params[:start_date] and params[:end_date]
       start_date = Chronic.parse(params[:start_date]).try(:to_date)
