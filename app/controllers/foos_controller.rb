@@ -27,6 +27,25 @@ class FoosController < ApplicationController
     end
   end
 
+  # GET /bars
+  # GET /bars.json
+  def bars
+    render json: [
+      {
+        foo: 1,
+        bar: 2
+      },
+      {
+        foo: 3,
+        bar: 4
+      },
+      {
+        foo: 5,
+        bar: 6
+      }
+    ]
+  end
+
   # GET /foos/1
   # GET /foos/1.json
   def show
