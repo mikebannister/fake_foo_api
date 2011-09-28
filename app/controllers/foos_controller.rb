@@ -42,6 +42,10 @@ class FoosController < ApplicationController
       {
         foo: 5,
         bar: 6
+      },
+      {
+        foo: 7,
+        bar: 8
       }
     ]
   end
