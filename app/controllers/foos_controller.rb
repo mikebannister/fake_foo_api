@@ -27,27 +27,16 @@ class FoosController < ApplicationController
     end
   end
 
-  # GET /bars
-  # GET /bars.json
-  def bars
-    render json: [
-      {
-        foo: 1,
-        bar: 2
-      },
-      {
-        foo: 3,
-        bar: 4
-      },
-      {
-        foo: 5,
-        bar: 6
-      },
-      {
-        foo: 7,
-        bar: 8
-      }
-    ]
+  # GET /foos/top_five
+  # GET /foos/top_five.json
+  def top_five
+    order = params[:order].try(:downcase)
+    ascending = order == 'asc'
+
+    @foos = Foo.order(:foo_date).reverse_order.to_a.take(5)
+    @foos.reverse! if ascending
+
+    render json: @foos
   end
 
   # GET /foos/1
