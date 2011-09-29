@@ -2,9 +2,11 @@
 
 ## Synopsis ##
 
-A fake API for consumption by ActiveResource. Useful for manually testing code that works with ActiveResource objects in a generic way.
+A fake REST API for consumption by ActiveResource based libraries.
 
-Swap out for [FakeWeb](http://fakeweb.rubyforge.org/) in your tests.
+Useful for manually testing code that works with ActiveResource objects in a generic way.
+
+Swap out for [FakeWeb](http://fakeweb.rubyforge.org/)+[VCR]() in your tests.
 
 ## Unleash an army of foos ##
 
